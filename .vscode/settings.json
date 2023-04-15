@@ -1,0 +1,22 @@
+{
+  "C_Cpp.intelliSenseEngineFallback": "enabled",
+  "files.associations": {
+    "*.ejs": "html",
+    "unordered_map": "cpp",
+    "random": "cpp",
+    "tuple": "cpp",
+    "*.tcc": "cpp",
+    "deque": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp",
+    "string": "cpp",
+    "unordered_set": "cpp",
+    "vector": "cpp",
+    "any": "cpp",
+    "system_error": "cpp",
+    "initializer_list": "cpp",
+    "valarray": "cpp",
+    "variant": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "enabled"
+}
