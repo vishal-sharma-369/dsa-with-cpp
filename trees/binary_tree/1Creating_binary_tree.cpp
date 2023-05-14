@@ -68,6 +68,35 @@ void levelOrderTraversal(Node*root)
     return;
 }
 
+// Write a program to print a given level of tree
+void printGivenLevel(Node*root , int level)
+{
+    if(root == NULL)
+    {
+        return;
+    }
+    else if(level== 1)
+    {
+        cout<<root->data << " ";
+    }
+    else if(level>1)
+    {
+        printGivenLevel(root->left , level-1);
+        printGivenLevel(root->right,level-1);
+    }
+}
+
+int height(Node*root)
+{
+    if(root == NULL)
+    {
+        return 0;
+    }
+    int leftHeight = height(root->left);
+    int rightHeight = height(root->right);
+    return max(leftHeight , rightHeight) + 1;
+}
+
 int main() {
     
     std::cout << "Hello world!";
