@@ -97,6 +97,120 @@ int height(Node*root)
     return max(leftHeight , rightHeight) + 1;
 }
 
+// Write a program to implement the inorder traversal of a binary tree using iterative approach
+void inorder(Node*root)
+{
+    stack<Node*> st;
+    st.push(root);
+    
+    while(true)
+    {
+        if(curr)
+        {
+            st.push(curr);
+            curr = curr->left;
+        }
+        else if(!st.empty())
+        {
+            Node*temp = st.top();
+            st.pop();
+            cout<<temp->data<<" ";
+            curr = temp->right;
+        }
+        else 
+        {
+            break;
+        }
+    }
+}
+
+// Write a program to implement the preorder traversal of the binary tree using iterative approach
+void preorder(Node*root)
+{
+    if(root == NULL)
+    {
+        return;
+    }
+    stack<Node*> st;
+    st.push(root);
+    
+    while(!st.empty())
+    {
+        Node*temp = st.top();
+        st.pop();
+        cout<<temp->data<<" ";
+        if(temp->right)
+        {
+            st.push(temp->right);
+        }
+        if(temp->left)
+        {
+            st.push(temp->left);
+        }
+    }
+    return;
+}
+
+void preorderIterative(Node*root)
+{
+    if(root == NULL)
+    {
+        return;
+    }
+    
+    stack<Node*> st;
+    Node*curr = root;
+    
+    while(curr != NULL || st.empty() == false)
+    {
+        while(curr)
+        {
+            cout<<curr->data<<" ";
+            if(curr->right)
+            {
+                st.push(curr->right);
+            }
+            
+            curr = curr->left;
+        }
+        
+        if(!st.empty())
+        {
+            curr = st.top();
+            st.pop();
+        }
+    }
+}
+
+// Write a program to implement the postorder traversal of a binary tree using the iterative approach
+void postOrder(Node*root)
+{
+    if(root == NULL)return;
+    stack<Node*> first;
+    stack<Node*> second;
+    
+    first.push(root);
+    while(!first.empty())
+    {
+        Node*temp = first.top();
+        first.pop();
+        second.push(temp);
+        if(temp->left)
+        {
+            first.push(temp->left);
+        }
+        if(temp->right)
+        {
+            first.push(temp->right);
+        }
+    }
+    while(!second.empty())
+    {
+        cout<<second.top()->data<<" ";
+        second.pop();
+    }
+}
+
 int main() {
     
     std::cout << "Hello world!";
